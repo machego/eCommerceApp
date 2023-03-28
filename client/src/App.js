@@ -3,11 +3,11 @@ import {
   RouterProvider,
   Outlet
 } from "react-router-dom";
-import Footer from "./components/Footer/Footer";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home";
-import Product from "./pages/Product/Product";
-import Products from "./pages/Products/Products";
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar.jsx";
+import Home from "./pages/home/Home";
+import Product from "./pages/product/Product";
+import Products from "./pages/products/Products";
 import "./app.scss"
 
 const Layout = () => {
