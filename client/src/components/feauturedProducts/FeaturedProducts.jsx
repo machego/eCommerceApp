@@ -6,7 +6,7 @@ function FeaturedProducts({type}) {
 
     const data = [
         {
-            id: 1,
+            id: 5,
             img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             img2: "https://images.pexels.com/photos/1148960/pexels-photo-1148960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             isNew: true,
@@ -14,7 +14,7 @@ function FeaturedProducts({type}) {
             price: 29,
         },
         {
-            id: 2,
+            id: 6,
             img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             img2: "https://images.pexels.com/photos/1148960/pexels-photo-1148960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             isNew: true,
@@ -22,7 +22,7 @@ function FeaturedProducts({type}) {
             price: 2,
         },
         {
-            id: 3,
+            id: 7,
             img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             img2: "https://images.pexels.com/photos/1148960/pexels-photo-1148960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             isNew: true,
@@ -30,7 +30,7 @@ function FeaturedProducts({type}) {
             price: 52,
         },
         {
-            id: 4,
+            id: 8,
             img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             img2: "https://images.pexels.com/photos/1148960/pexels-photo-1148960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
             isNew: true,
