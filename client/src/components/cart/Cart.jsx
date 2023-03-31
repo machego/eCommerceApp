@@ -1,54 +1,54 @@
 import React from 'react'
 import './Cart.scss'
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { makeRequest } from '../../makeRequest';
+import { removeItem, resetCart } from '../../redux/cartReducer.js';
+
 
 const Cart = () => {
-
-    const data = [
-        {
-            id: 9,
-            img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            img2: "https://images.pexels.com/photos/1148960/pexels-photo-1148960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            title: "Lorem ipsum dolor sit",
-            desc: "Lorem ipsum dolor sit",
-            isNew: true,
-            oldPrice: 49,
-            price: 29,
-        },
-        {
-            id: 10,
-            img: "https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            title: "coat",
-            desc: "Lorem ipsum dolor sit",
-            isNew: true,
-            oldPrice: 49,
-            price: 29,
-        },
-    ]
-
-
-  return (
-      <div className='cart'>
-          <h1>Products in your cart</h1>
-          { data?.map(item => (
-              <div className='item' key={ item.id }>
-                  <img src={ item.img } alt='' />
-                  <div className='details'>
-                      <h1>{ item.title }</h1>
-                      <p>{ item.desc?.substring(0, 100) }</p>
-                      <div className='price'>1 x ${ item.price }</div>
-                  </div>
-                  <DeleteOutlinedIcon className='delete'/>
+    const products = useSelector((state) => state.cart.products);
+    const dispatch = useDispatch();
+  
+    const totalPrice = () => {
+      let total = 0;
+      products.forEach((item) => {
+        total += item.quantity * item.price;
+      });
+      return total.toFixed(2);
+    };
+  
+   
+    return (
+      <div className="cart">
+        <h1>Products in your cart</h1>
+        {products?.map((item) => (
+          <div className="item" key={item.id}>
+            <img src={process.env.REACT_APP_UPLOAD_URL + item.img} alt="" />
+            <div className="details">
+              <h1>{item.title}</h1>
+              <p>{item.desc?.substring(0, 100)}</p>
+              <div className="price">
+                {item.quantity} x ${item.price}
               </div>
-          )) }
-          <div className='total'>
-              <span>SUBTOTAL</span>
-              <span>$123</span>
+            </div>
+            <DeleteOutlinedIcon
+              className="delete"
+              onClick={() => dispatch(removeItem(item.id))}
+            />
           </div>
-          <button>PROCEED TO CHECKOUT</button> 
-          <span className='reset'>Reset Cart</span>
+        ))}
+        <div className="total">
+          <span>SUBTOTAL</span>
+          <span>${totalPrice()}</span>
+        </div>
+        <button>PROCEED TO CHECKOUT</button>
+        <span className="reset" onClick={() => dispatch(resetCart())}>
+          Reset Cart
+        </span>
       </div>
-  )
-}
-
-export default Cart
+    );
+  };
+  
+  export default Cart;
